@@ -67,12 +67,15 @@ public class Car extends Observable implements IVehicle, Observer{
 			canMove = false;
 		
 		if (canMove){
+			//checks if the car can turn west and if its within the bounds of the road
 			if(turnWest && getVehicleY() < 850 && getVehicleY() > 785 && getVehicleX() <= 800 && getVehicleX() > 390) {
+				//moves horizontally left
 				currentX -= speed;
 				ivCar.setX(currentX);
 				turned = true;
 			}
 			else {
+				//moves vertically down
 				currentY+=speed;
 				ivCar.setY(currentY);
 			}
@@ -120,10 +123,10 @@ public class Car extends Observable implements IVehicle, Observer{
 	public void update(Observable o, Object arg1) {
 		if (o instanceof Car){
 			leadCarY = (((Car)o).getVehicleY());
-			leadCarX = (((Car)o).getVehicleX());
+			leadCarX = (((Car)o).getVehicleX()); //gets horizontal distance of lead car
 			if (leadCarY > 1020) {
 				leadCarY = -1;
-				leadCarX = -1;
+				leadCarX = -1; //resets if out of screen
 			}
 		}
 			
@@ -137,10 +140,12 @@ public class Car extends Observable implements IVehicle, Observer{
 		}				
 	}
 	
+	//sets that the car turns onto the eastwest road
 	public void setTurnWest() {
 		this.turnWest = true;
 	}
 	
+	//check if the car has turned
 	public boolean getIfTurned() {
 		return turned;
 	}

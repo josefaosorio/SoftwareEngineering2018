@@ -50,10 +50,6 @@ public class MapBuilder {
 	private void buildCarFactories(){
 		roads.get("Eastern Highway").addCarFactory();
 		roads.get("Western Highway").addCarFactory();
-		/*
-		 * roads.get("Eastern Highway").addCarFactory();
-		 * roads.get("Western Highway").addCarFactory();
-		 */
 	}
 	
 	public Collection<CrossingGate> getAllGates(){

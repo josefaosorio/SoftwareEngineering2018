@@ -70,7 +70,6 @@ public class CarFactory {
 		ArrayList<Car> toDelete = new ArrayList<Car>();
 		for(Car car: cars){
 			car.move();
-			//roads = 
 			if (car.offScreen())
 				toDelete.add(car);
 			
@@ -83,14 +82,4 @@ public class CarFactory {
 	public Car getPreviousCar() {
 		return previousCar;
 	}
-	
-	/*
-	 * each road has a car factory
-	 * goal: get factories to talk to each other
-	 * goal: check if there's a car in eastern highway within x distance of one in western highway
-	 * question: check if car factory's cars are within each other? Or check within cars or within roads
-	 * need to refer to roads by names
-	 * question: how do i get the cars in other factories when in that factory?
-	 * maybe add it in roads?
-	 */
 }

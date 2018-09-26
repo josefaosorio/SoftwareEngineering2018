@@ -121,17 +121,21 @@ public class CrossingGate extends Observable implements Observer{
 	public void update(Observable o, Object arg) {
 		if (o instanceof Train){
 			Train train = (Train)o;
+			
+			//gets perspective trains locations
 			if (train.movingWest())
 				currTrain1pos = train.getVehicleX();
 			else
 				currTrain2pos = train.getVehicleX();
 			
+			//checks if trains are within the range of the distance of the gates
 			if (currTrain1pos > leftPoint && currTrain1pos < rightPoint)
 				currentGateState.approachStation();
 			
 			if (currTrain2pos > leftPoint && currTrain2pos < rightPoint)
 				currentGateState.approachStation();
 			
+			//notify that the train has left the station if outside of the range
 			if (currTrain1pos < leftPoint || currTrain1pos > rightPoint) {
 				if (currTrain2pos < leftPoint || currTrain2pos > rightPoint)
 					currentGateState.leaveStation();
