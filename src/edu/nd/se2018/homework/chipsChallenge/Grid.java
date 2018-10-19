@@ -11,7 +11,7 @@ public class Grid {
 	private int totalChips = 0;
 	private int chipsCollected = 0;
 
-	public Grid() {
+	private Grid() {
 		cellGrid = new CellBehavior[dimensions][dimensions];
 	}
 		
